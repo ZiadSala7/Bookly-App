@@ -10,7 +10,6 @@ PreferredSizeWidget customAppBar() {
       height: 100,
       width: 80,
     ),
-    leading: null,
     actions: [
       IconButton(
         onPressed: () {},
