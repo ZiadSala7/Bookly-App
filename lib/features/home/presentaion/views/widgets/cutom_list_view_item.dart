@@ -11,6 +11,7 @@ class CustomListViewItem extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 2.8 / 4,
         child: Container(
+          margin: const EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             image: const DecorationImage(
@@ -20,24 +21,6 @@ class CustomListViewItem extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class FeatureBooksView extends StatelessWidget {
-  const FeatureBooksView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: 10,
-      itemBuilder: (BuildContext context, int index) {
-        return const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomListViewItem(),
-        );
-      },
     );
   }
 }
