@@ -3,6 +3,7 @@ import 'package:bookly_app/features/home/presentaion/views/widgets/home_view_bod
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
+  static const String id = '/HomeView';
   const HomeView({super.key});
 
   @override
