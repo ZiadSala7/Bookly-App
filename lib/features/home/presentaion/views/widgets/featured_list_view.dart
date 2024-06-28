@@ -10,7 +10,7 @@ class FeatureBooksView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: 10,
       itemBuilder: (BuildContext context, int index) {
-        return const CustomListViewItem();
+        return const CustomBookItem();
       },
     );
   }
