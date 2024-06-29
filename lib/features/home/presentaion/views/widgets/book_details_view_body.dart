@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/home/presentaion/views/widgets/book_rating.dart';
-import 'package:bookly_app/features/home/presentaion/views/widgets/cutom_list_view_item.dart';
+import 'package:bookly_app/features/home/presentaion/views/widgets/book_actions.dart';
+import 'package:bookly_app/features/home/presentaion/views/widgets/book_section_details.dart';
+import 'package:bookly_app/features/home/presentaion/views/widgets/similar_books_view.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -8,37 +9,38 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * 0.25),
-          child: const CustomBookItem(),
+    return const CustomScrollView(slivers: [
+      SliverFillRemaining(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            BookSectionDetails(),
+            BookActions(),
+            Expanded(
+              child: SizedBox(
+                height: 50,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 15),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'You can also read ',
+                  style: Styles.textStyle18,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SimilarBoooksView(),
+            SizedBox(
+              height: 10,
+            ),
+          ],
         ),
-        const SizedBox(
-          height: 43,
-        ),
-        const Text(
-          'The Jungle Book',
-          textAlign: TextAlign.center,
-          style: Styles.textStyle30,
-        ),
-        Text(
-          'Rudiard Kipling',
-          textAlign: TextAlign.center,
-          style: Styles.textStyle16.copyWith(
-            fontStyle: FontStyle.italic,
-          ),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        const BookRating(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
-      ],
-    );
+      ),
+    ]);
   }
 }
