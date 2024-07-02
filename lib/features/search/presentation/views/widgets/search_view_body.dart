@@ -15,7 +15,7 @@ class SearchViewBody extends StatelessWidget {
         children: [
           CustomTextField(),
           SizedBox(
-            height: 15,
+            height: 16,
           ),
           Text(
             'Search Results',
