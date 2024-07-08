@@ -11,21 +11,28 @@ class FeatureBooksView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
       builder: (context, state) {
-        return ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 10,
-          itemBuilder: (BuildContext context, int index) {
-            if (state is FeaturedBooksSuccess) {
-              return const CustomBookItem();
-            } else if (state is FeaturedBooksFailure) {
-              return Center(
-                child: Text(state.errMessage),
-              );
-            } else {
+        if (state is FeaturedBooksSuccess) {
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount:
+                state.books.length, // Assuming state.books is a list of books
+            itemBuilder: (BuildContext context, int index) {
+              return const CustomBookItem(); // Pass the book to the widget
+            },
+          );
+        } else if (state is FeaturedBooksFailure) {
+          return Center(
+            child: Text(state.errMessage),
+          );
+        } else {
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 10, // Showing 10 shimmer items as a placeholder
+            itemBuilder: (BuildContext context, int index) {
               return const CustomShimmerItem();
-            }
-          },
-        );
+            },
+          );
+        }
       },
     );
   }
