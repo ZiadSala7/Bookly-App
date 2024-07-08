@@ -13,10 +13,10 @@ final class NewestBooksCubitLoading extends NewestBooksCubitState {}
 
 final class NewestBooksCubitFailure extends NewestBooksCubitState {
   final String errMessage;
-  const NewestBooksCubitFailure({required this.errMessage});
+  const NewestBooksCubitFailure(this.errMessage);
 }
 
 final class NewestBooksCubitSuccess extends NewestBooksCubitState {
   final List<BookModel> books;
-  const NewestBooksCubitSuccess({required this.books});
+  const NewestBooksCubitSuccess(this.books);
 }
