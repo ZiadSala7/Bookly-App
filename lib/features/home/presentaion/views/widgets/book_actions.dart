@@ -1,7 +1,7 @@
+import 'package:bookly_app/core/functions/url_lancher.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentaion/views/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BookActions extends StatelessWidget {
   final BookModel book;
@@ -34,11 +34,8 @@ class BookActions extends StatelessWidget {
               ),
               backgroundColor: const Color(0xffEf8262),
               txtColor: Colors.white,
-              onPressed: () async {
-                Uri uri = Uri.parse(book.volumeInfo.previewLink!);
-                if (await canLaunchUrl(uri)) {
-                  await launchUrl(uri);
-                }
+              onPressed: () {
+                setupUrlLancher(context, book.volumeInfo.previewLink!);
               },
             ),
           ),
