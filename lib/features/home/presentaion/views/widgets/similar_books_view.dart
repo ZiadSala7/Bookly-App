@@ -18,9 +18,9 @@ class SimilarBoooksView extends StatelessWidget {
                 margin: const EdgeInsets.only(right: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  image: const DecorationImage(
+                  image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(AppImages.testImage),
+                    image: NetworkImage(AppImages.testImage),
                   ),
                 ),
               ),
