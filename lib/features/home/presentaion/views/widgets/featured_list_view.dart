@@ -1,8 +1,10 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/features/home/presentaion/managers/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/features/home/presentaion/views/widgets/custom_shimmer_featured_item.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_app/features/home/presentaion/views/widgets/cutom_list_view_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FeatureBooksView extends StatelessWidget {
   const FeatureBooksView({super.key});
@@ -17,8 +19,14 @@ class FeatureBooksView extends StatelessWidget {
             itemCount:
                 state.books.length, // Assuming state.books is a list of books
             itemBuilder: (BuildContext context, int index) {
-              return CustomBookItem(
-                imgUrl: state.books[index].volumeInfo.imageLinks!.thumbnail,
+              return GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.bookDetailsView,
+                      extra: state.books[index]);
+                },
+                child: CustomBookItem(
+                  imgUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                ),
               ); // Pass the book to the widget
             },
           );

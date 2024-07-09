@@ -20,7 +20,7 @@ class VolumeInfo {
   bool? allowAnonLogging;
   String? contentVersion;
   PanelizationSummary? panelizationSummary;
-  ImageLinks? imageLinks;
+  ImageLinks imageLinks;
   String? language;
   String? previewLink;
   String? infoLink;
@@ -64,7 +64,7 @@ class VolumeInfo {
             : ReadingModes.fromJson(
                 json['readingModes'] as Map<String, dynamic>),
         pageCount: json['pageCount'] as int?,
-        averageRating: json['averageRating'] ,
+        averageRating: json['averageRating'],
         ratingsCount: json['ratingsCount'] as int?,
         printType: json['printType'] as String?,
         categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
@@ -75,9 +75,8 @@ class VolumeInfo {
             ? null
             : PanelizationSummary.fromJson(
                 json['panelizationSummary'] as Map<String, dynamic>),
-        imageLinks: json['imageLinks'] == null
-            ? null
-            : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+        imageLinks:
+            ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,
         infoLink: json['infoLink'] as String?,
@@ -100,7 +99,7 @@ class VolumeInfo {
         'allowAnonLogging': allowAnonLogging,
         'contentVersion': contentVersion,
         'panelizationSummary': panelizationSummary?.toJson(),
-        'imageLinks': imageLinks?.toJson(),
+        'imageLinks': imageLinks.toJson(),
         'language': language,
         'previewLink': previewLink,
         'infoLink': infoLink,
