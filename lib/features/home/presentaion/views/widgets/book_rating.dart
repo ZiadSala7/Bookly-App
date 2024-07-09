@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 
 class BookRating extends StatelessWidget {
   final MainAxisAlignment mainAxisAlignment;
+  final num rating;
+  final num count;
   const BookRating(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.spaceBetween});
+      {super.key,
+      this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
+      required this.rating,
+      required this.count});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,7 @@ class BookRating extends StatelessWidget {
           width: 6,
         ),
         Text(
-          '4.3',
+          rating.toString(),
           style: Styles.textStyle16.copyWith(
             fontWeight: FontWeight.w700,
           ),
@@ -29,7 +34,7 @@ class BookRating extends StatelessWidget {
           width: 3,
         ),
         Text(
-          '(245)',
+          '($count)',
           style: Styles.textStyle14.copyWith(
             color: const Color.fromARGB(255, 144, 133, 133),
           ),

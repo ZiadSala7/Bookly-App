@@ -17,7 +17,9 @@ class FeatureBooksView extends StatelessWidget {
             itemCount:
                 state.books.length, // Assuming state.books is a list of books
             itemBuilder: (BuildContext context, int index) {
-              return const CustomBookItem(); // Pass the book to the widget
+              return CustomBookItem(
+                imgUrl: state.books[index].volumeInfo.imageLinks!.thumbnail,
+              ); // Pass the book to the widget
             },
           );
         } else if (state is FeaturedBooksFailure) {
