@@ -25,7 +25,7 @@ class FeatureBooksView extends StatelessWidget {
                       extra: state.books[index]);
                 },
                 child: CustomBookItem(
-                  imgUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                  imgUrl: state.books[index].volumeInfo.imageLinks!.thumbnail,
                 ),
               ); // Pass the book to the widget
             },

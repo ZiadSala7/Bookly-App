@@ -26,7 +26,7 @@ class SimilarBoooksView extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.fill,
                         image: NetworkImage(
-                          state.similarBooks[index].volumeInfo.imageLinks
+                          state.similarBooks[index].volumeInfo.imageLinks!
                               .thumbnail,
                         ),
                       ),
