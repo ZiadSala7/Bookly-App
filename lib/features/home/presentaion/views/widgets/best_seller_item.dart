@@ -1,3 +1,4 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
@@ -19,7 +20,7 @@ class BestSellerItem extends StatelessWidget {
       child: SizedBox(
         height: 135,
         child: Card(
-          color: const Color.fromARGB(194, 22, 61, 80),
+          color: cardColor,
           child: Row(
             children: [
               AspectRatio(
@@ -48,6 +49,7 @@ class BestSellerItem extends StatelessWidget {
                     Text(
                       book.volumeInfo.authors![0],
                       style: Styles.textStyle14,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(
                       height: 3,
