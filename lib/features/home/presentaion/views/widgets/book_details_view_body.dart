@@ -22,7 +22,7 @@ class BookDetailsViewBody extends StatelessWidget {
             BookActions(book: book),
             const Expanded(
               child: SizedBox(
-                height: 50,
+                height: 30,
               ),
             ),
             const Padding(
@@ -45,9 +45,6 @@ class BookDetailsViewBody extends StatelessWidget {
                 );
               },
               child: const SimilarBoooksView(),
-            ),
-            const SizedBox(
-              height: 10,
             ),
           ],
         ),

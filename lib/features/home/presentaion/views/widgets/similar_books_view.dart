@@ -14,13 +14,13 @@ class SimilarBoooksView extends StatelessWidget {
         builder: (context, state) {
       if (state is SimilarBooksCubitSuccess) {
         return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: MediaQuery.of(context).size.height * 0.23,
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: state.similarBooks.length,
               itemBuilder: (context, index) {
                 return AspectRatio(
-                  aspectRatio: 2.8 / 4,
+                  aspectRatio: 2.9 / 4,
                   child: GestureDetector(
                     onTap: () => GoRouter.of(context).push(
                       AppRouter.bookDetailsView,
