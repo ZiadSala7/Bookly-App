@@ -38,7 +38,14 @@ class BookDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const SimilarBoooksView(),
+            GestureDetector(
+              onTap: () {
+                BookDetailsViewBody(
+                  book: book,
+                );
+              },
+              child: const SimilarBoooksView(),
+            ),
             const SizedBox(
               height: 10,
             ),

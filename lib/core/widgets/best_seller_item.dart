@@ -41,6 +41,8 @@ class BestSellerItem extends StatelessWidget {
                       child: Text(
                         book.volumeInfo.title!,
                         style: Styles.textStyle20,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
                       ),
                     ),
                     const SizedBox(

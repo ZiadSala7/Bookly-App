@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+class CustomTextField extends StatefulWidget {
+  final Function(String) onChange;
+  const CustomTextField({super.key, required this.onChange});
 
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: widget.onChange,
       decoration: InputDecoration(
         suffixIcon: IconButton(
           onPressed: () {},

@@ -26,6 +26,8 @@ class BookSectionDetails extends StatelessWidget {
           book.volumeInfo.title!,
           textAlign: TextAlign.center,
           style: Styles.textStyle30,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
         ),
         Text(
           book.volumeInfo.authors![0],
