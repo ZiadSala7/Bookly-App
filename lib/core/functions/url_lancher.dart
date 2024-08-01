@@ -7,6 +7,7 @@ Future<void> setupUrlLancher(BuildContext context, String url) async {
   if (await canLaunchUrl(uri)) {
     await launchUrl(uri);
   } else {
+    // ignore: use_build_context_synchronously
     customSnackBar(context);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/search/presentation/views/managers/search_cubit/search_cubit.dart';
 import 'package:bookly_app/features/search/presentation/views/widgets/custom_text_field.dart';
