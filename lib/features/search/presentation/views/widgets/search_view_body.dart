@@ -15,56 +15,40 @@ class SearchViewBody extends StatefulWidget {
 }
 
 class _SearchViewBodyState extends State<SearchViewBody> {
-  List<BookModel> filteredList = [];
   List<BookModel> books = [];
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchingCubit, SearchingState>(
-      builder: (context, state) {
-        if (state is SearchingSuccess) {
-          books = state.books;
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomTextField(
-                  onChange: (value) {
-                    setState(() {
-                      getFilteredData(searchInput: value);
-                    });
-                  },
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                const Text(
-                  'Search Results',
-                  style: Styles.textStyle18,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Expanded(
-                    child: SearchResultListView(
-                  filteredData: filteredList,
-                )),
-              ],
-            ),
-          );
-        } else {
-          return const CustomLoadingIndicator();
-        }
-      },
-    );
-  }
-
-  void getFilteredData({required String searchInput}) {
-    setState(() {
-      filteredList = books
-          .where((element) =>
-              element.volumeInfo.title!.toLowerCase().startsWith(searchInput))
-          .toList();
+        builder: (context, state) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          CustomTextField(
+            onSubmitted: (value) {
+              setState(() {
+                BlocProvider.of<SearchingCubit>(context).searchingBooks(value);
+              });
+            },
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          const Text(
+            'Search Results',
+            style: Styles.textStyle18,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Expanded(
+            child: state is SearchingSuccess
+                ? SearchResultListView(
+                    filteredData: state.books,
+                  )
+                : const Text(""),
+          ),
+        ]),
+      );
     });
   }
 }

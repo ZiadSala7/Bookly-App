@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
-  final Function(String) onChange;
-  const CustomTextField({super.key, required this.onChange});
+  final Function(String) onSubmitted;
+  const CustomTextField({super.key, required this.onSubmitted});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -12,7 +12,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onChanged: widget.onChange,
+      onSubmitted: widget.onSubmitted,
       decoration: InputDecoration(
         suffixIcon: IconButton(
           onPressed: () {},

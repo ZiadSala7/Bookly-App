@@ -9,9 +9,9 @@ class SearchingCubit extends Cubit<SearchingState> {
   SearchingCubit(this.searchRepo) : super(SearchingInitial());
   SearchRepo searchRepo;
 
-  Future<void> searchingBooks() async {
+  Future<void> searchingBooks(String value) async {
     emit(SearchingLoading());
-    var data = await searchRepo.fetchSearchingBooks();
+    var data = await searchRepo.fetchSearchingBooks(value);
     data.fold((failure) => emit(SearchingFailure()),
         (searchingBooks) => emit(SearchingSuccess(searchingBooks)));
   }
