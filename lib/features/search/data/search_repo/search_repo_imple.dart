@@ -12,7 +12,7 @@ class SearchRepoImple implements SearchRepo {
   Future<Either<Failures, List<BookModel>>> fetchSearchingBooks() async {
     try {
       var data = await apiServices.get(
-          endPoint: 'volumes?q=computer science&Sorting=newest');
+          endPoint: 'volumes?Filtering=free-ebooks&q=book');
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
