@@ -46,7 +46,9 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                   )
                 : state is SearchingFailure
                     ? const Text("Faild to found the book")
-                    : const CircularProgressIndicator(),
+                    : state is SearchingInitial
+                        ? const Text("")
+                        : const Center(child: CircularProgressIndicator()),
           ),
         ]),
       );
