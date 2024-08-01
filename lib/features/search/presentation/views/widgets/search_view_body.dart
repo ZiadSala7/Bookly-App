@@ -44,7 +44,9 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                 ? SearchResultListView(
                     filteredData: state.books,
                   )
-                : const Text(""),
+                : state is SearchingFailure
+                    ? const Text("Faild to found the book")
+                    : const CircularProgressIndicator(),
           ),
         ]),
       );
